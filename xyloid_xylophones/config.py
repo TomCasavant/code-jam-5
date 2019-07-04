@@ -5,7 +5,7 @@ game_height = 640
 #Locations
 location_sound = 'assets/sounds/'
 location_music = 'assets/music/'
-location_scenes = 'assets/scenes/'
+location_scene = 'assets/scenes/'
 
 # zone names
 zone_names = ['desolate wasteland', 'northern tundra', 'lush forest']

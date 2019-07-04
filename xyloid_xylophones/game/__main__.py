@@ -1,7 +1,7 @@
 import pyglet
 from config import *
 from os import listdir
-from os.path import isfile, join, isdir, basename, splitext
+from os.path import isfile, join, isdir, basename, splitext, realpath, split
 from pathlib import Path
 
 from .render_loop import render_loop
@@ -11,7 +11,6 @@ from random import getrandbits
 from .input import mouse_input
 
 game_window.push_handlers(on_draw=render_loop)  # Set the render loop handler.
-
 
 @game_window.event
 def on_key_press(symbol, modifiers):

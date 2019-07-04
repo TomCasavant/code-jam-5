@@ -1,5 +1,6 @@
 import pyglet
 from pyglet import gl
+import os
 
 from config import *
 from . import game_window
@@ -7,6 +8,7 @@ from . import zone_map
 from . import time_display
 from . import player
 from .input import handle_input
+from .textbox import TextBox
 
 def render_loop():
     '''
