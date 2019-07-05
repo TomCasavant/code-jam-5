@@ -6,8 +6,6 @@ from config import *
 # 640x640 makes it easier to draw tiles
 game_window = pyglet.window.Window(width=game_width, height=game_height)
 
-time_display = pyglet.clock.ClockDisplay()
-
 media = pyglet.media.Player()
 
 #List of current pressed keys

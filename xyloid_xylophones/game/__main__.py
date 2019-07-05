@@ -8,7 +8,7 @@ from pyglet.image.codecs.png import PNGImageDecoder
 
 #from .render_loop import render_loop
 from . import game_window, player, zone_map, Item, sound_list, music_list, scene_list, Resource, tick
-from . import keys, time_display, elapsed_time, media
+from . import keys, elapsed_time, media
 from random import getrandbits
 from .input import mouse_input, handle_input
 
@@ -194,7 +194,6 @@ def render_loop():
         font_size=16,
         x=game_window.width//3, y=24, color=(0, 0, 0, 255))
     label.draw()
-    time_display.draw()
 
 if __name__ == '__main__':
     game_window.push_handlers(on_draw=render_loop)  # Set the render loop handler.
@@ -211,21 +210,14 @@ if __name__ == '__main__':
 
     # try block avbin then avbin64 then turn music / sound off?
     # need to install on windows or include with build
-    sound = True
-    try:
-        pyglet.lib.load_library('avbin')
-    except:
-        try:
-            pyglet.lib.load_library('avbin64')
-        except:
-            sound = False
-
-    if sound:
-        pyglet.have_avbin = True
-        looper = pyglet.media.SourceGroup(music_list['default'].data.audio_format, None)
-        looper.loop = True
-        looper.queue(music_list['default'].data)
-        media.queue(looper)
-        media.volume = 0.05
-        media.play()
+    pyglet.options['audio'] = ('openal', 'pulse', 'directsound', 'silent')
+    pyglet.options['search_local_libs'] = True
+    source = pyglet.media.load('/home/tay/Programming/git/code-jam-5/xyloid_xylophones/assets/music/default.ogg')
+    source.play()
+    #looper = pyglet.media.SourceGroup(music_list['default'].data.audio_format, None)
+    #looper.loop = True
+    #looper.queue(music_list['default'].data)
+    #media.queue(looper)
+    #media.volume = 0.05
+    #media.play()
     pyglet.app.run()
