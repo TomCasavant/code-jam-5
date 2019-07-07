@@ -27,7 +27,7 @@ def on_key_press(symbol, modifiers):
     '''
 
     keys.add(symbol)
-
+    music_control.play_sound("test_sound.wav")
     if len(keys) > 0:
         handle_input()
 
