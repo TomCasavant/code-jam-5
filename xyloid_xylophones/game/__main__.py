@@ -10,6 +10,8 @@ from . import keys
 from random import getrandbits
 from .input import mouse_input, handle_input
 
+from .sounds import Sound
+
 game_window.push_handlers(on_draw=render_loop)  # Set the render loop handler.
 
 pyglet.clock.schedule(lambda dt: None)
@@ -108,8 +110,9 @@ if __name__ == '__main__':
     #cut_scenes = load_list(location_scenes)
     #sound_list = load_list(location_sound)
     #music_list = load_list(location_music)
-
+    music_control = Sound()
     pyglet.clock.schedule_interval(handle_input, 0.15)
     generate_random_zones()
     player.load_player()
+    music_control.play_music("test.mp3")
     pyglet.app.run()
